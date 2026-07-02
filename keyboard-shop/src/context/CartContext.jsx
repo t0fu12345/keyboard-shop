@@ -4,6 +4,7 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   const addToCart = (product) => {
     setCartItems(prev => {
@@ -21,6 +22,7 @@ export function CartProvider({ children }) {
 
   const removeFromCart = (id) => {
     setCartItems(prev => prev.filter(item => item.id !== id));
+    setSelectedItems(prev => prev.filter(itemId => itemId !== id));
   };
 
   const updateQuantity = (id, delta) => {
@@ -35,10 +37,33 @@ export function CartProvider({ children }) {
 
   const clearCart = () => {
     setCartItems([]);
+    setSelectedItems([]);
+  };
+
+  const toggleSelectItem = (id) => {
+    setSelectedItems(prev => 
+      prev.includes(id) ? prev.filter(itemId => itemId !== id) : [...prev, id]
+    );
+  };
+
+  const toggleSelectAll = (isSelectAll) => {
+    if (isSelectAll) {
+      setSelectedItems(cartItems.map(item => item.id));
+    } else {
+      setSelectedItems([]);
+    }
+  };
+
+  const checkoutSelected = () => {
+    setCartItems(prev => prev.filter(item => !selectedItems.includes(item.id)));
+    setSelectedItems([]);
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity, clearCart }}>
+    <CartContext.Provider value={{ 
+      cartItems, addToCart, removeFromCart, updateQuantity, clearCart,
+      selectedItems, toggleSelectItem, toggleSelectAll, checkoutSelected
+    }}>
       {children}
     </CartContext.Provider>
   );
