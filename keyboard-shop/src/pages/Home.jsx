@@ -34,8 +34,9 @@ export default function Home() {
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
             Elevate your typing experience with bespoke, hand-assembled mechanical keyboards crafted for enthusiasts who demand tactile perfection.
           </p>
-          <div className="pt-4">
-            <Link to="/products" className="btn-primary font-button text-button px-8 py-4 rounded-lg uppercase tracking-wider inline-block">Explore Collection</Link>
+          <div className="pt-4 flex gap-4 justify-center">
+            <Link to="/explore" className="md:hidden btn-primary font-button text-button px-8 py-4 rounded-lg uppercase tracking-wider inline-block">Explore Collection</Link>
+            <Link to="/products" className="hidden md:inline-block btn-primary font-button text-button px-8 py-4 rounded-lg uppercase tracking-wider inline-block">Explore Collection</Link>
           </div>
         </div>
       </section>

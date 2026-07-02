@@ -1,4 +1,4 @@
-import { Outlet, Link, NavLink, useLocation } from "react-router-dom";
+import { Outlet, Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { useRef, useEffect, useState } from "react";
@@ -10,6 +10,8 @@ export default function Layout() {
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
   const navRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  const [mobileTitle, setMobileTitle] = useState("Khám phá");
 
   useEffect(() => {
     // Add a slight delay so React Router can update the "active" class on NavLink
@@ -48,6 +50,26 @@ export default function Layout() {
       window.removeEventListener('resize', handleResize);
     };
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleUpdateTitle = (e) => {
+      if (e.detail) setMobileTitle(e.detail);
+    };
+    window.addEventListener('updateMobileTitle', handleUpdateTitle);
+    
+    // Set default title based on route if no specific section is active
+    if (location.pathname === '/') setMobileTitle("Trang chủ");
+    else if (location.pathname.startsWith('/products')) setMobileTitle("Bàn phím");
+    else if (location.pathname.startsWith('/keycaps')) setMobileTitle("Keycaps");
+    else if (location.pathname.startsWith('/explore')) setMobileTitle("Khám phá");
+    else if (location.pathname.startsWith('/cart')) setMobileTitle("Giỏ hàng");
+    else if (location.pathname.startsWith('/news')) setMobileTitle("Tin tức");
+    else if (location.pathname.startsWith('/login') || location.pathname.startsWith('/register')) setMobileTitle("Tài khoản");
+
+    return () => {
+      window.removeEventListener('updateMobileTitle', handleUpdateTitle);
+    };
+  }, [location.pathname]);
   
   const getNavClass = ({ isActive }) => {
     const baseClass = "font-button text-button uppercase tracking-wider px-2 py-1 rounded whitespace-nowrap transition-colors";
@@ -58,8 +80,29 @@ export default function Layout() {
 
   return (
     <div className="antialiased font-body-md text-body-md">
+      {/* Mobile Top App Bar */}
+      <header className="fixed top-0 w-full z-50 glass-header px-margin-mobile py-4 flex justify-between items-center md:hidden">
+        <button onClick={() => navigate(-1)} className="text-on-surface-variant hover:text-primary transition-colors">
+          <span className="material-symbols-outlined text-2xl">arrow_back</span>
+        </button>
+        <h1 className="font-headline-md text-headline-md text-primary tracking-tighter">{mobileTitle}</h1>
+        <div className="flex gap-4">
+          <button className="text-on-surface-variant hover:text-primary transition-colors">
+            <span className="material-symbols-outlined text-2xl">search</span>
+          </button>
+          <Link to="/cart" className="text-on-surface-variant hover:text-primary transition-colors relative">
+            <span className="material-symbols-outlined text-2xl">shopping_cart</span>
+            {cartItems.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-primary text-on-primary text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
+                {cartItems.reduce((acc, item) => acc + (item.quantity || 1), 0)}
+              </span>
+            )}
+          </Link>
+        </div>
+      </header>
+
       {/* TopNavBar */}
-      <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300 ease-in-out">
+      <nav className="hidden md:block fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300 ease-in-out">
         <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
           <Link to="/" className="font-display-lg text-headline-md font-bold tracking-tighter text-primary">
             TACTILE LUXE
@@ -131,6 +174,52 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Bottom Nav */}
+      <nav className="fixed bottom-0 w-full z-50 glass-bottom-nav px-6 py-3 md:hidden">
+        <ul className="flex justify-between items-center max-w-md mx-auto">
+          <li className="flex flex-col items-center">
+            <NavLink to="/" end className={({ isActive }) => `flex flex-col items-center gap-1 ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}>
+              {({ isActive }) => (
+                <>
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}>home</span>
+                  <span className={`font-label-sm text-[10px] ${isActive ? 'font-bold' : ''}`}>Trang chủ</span>
+                </>
+              )}
+            </NavLink>
+          </li>
+          <li className="flex flex-col items-center">
+            <NavLink to="/explore" className={({ isActive }) => `flex flex-col items-center gap-1 ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}>
+              {({ isActive }) => (
+                <>
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}>explore</span>
+                  <span className={`font-label-sm text-[10px] ${isActive ? 'font-bold' : ''}`}>Khám phá</span>
+                </>
+              )}
+            </NavLink>
+          </li>
+          <li className="flex flex-col items-center">
+            <NavLink to="/news" className={({ isActive }) => `flex flex-col items-center gap-1 ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}>
+              {({ isActive }) => (
+                <>
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}>article</span>
+                  <span className={`font-label-sm text-[10px] ${isActive ? 'font-bold' : ''}`}>Tin tức</span>
+                </>
+              )}
+            </NavLink>
+          </li>
+          <li className="flex flex-col items-center">
+            <NavLink to={user ? "/profile" : "/login"} className={({ isActive }) => `flex flex-col items-center gap-1 ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}>
+              {({ isActive }) => (
+                <>
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}>person</span>
+                  <span className={`font-label-sm text-[10px] ${isActive ? 'font-bold' : ''}`}>Cá nhân</span>
+                </>
+              )}
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
