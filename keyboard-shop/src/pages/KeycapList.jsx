@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
 const products = [
   {
@@ -65,6 +66,8 @@ export default function KeycapList() {
   const [activeProfiles, setActiveProfiles] = useState([]);
   const [notifications, setNotifications] = useState([]);
   const { addToCart } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleMaterialChange = (material) => {
     setActiveMaterials(prev => 
@@ -80,6 +83,12 @@ export default function KeycapList() {
 
   const handleAddToCart = (e, product) => {
     e.preventDefault();
+    e.stopPropagation();
+    if (!user) {
+      alert("Please login to add items to cart.");
+      navigate("/login");
+      return;
+    }
     addToCart(product);
     const notifId = Date.now() + Math.random();
     setNotifications((prev) => [{ id: notifId }, ...prev]);

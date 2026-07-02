@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 
 export default function ProductDetail() {
   const images = [
@@ -10,6 +12,26 @@ export default function ProductDetail() {
   ];
   const [mainImage, setMainImage] = useState(images[0]);
   const [quantity, setQuantity] = useState(1);
+  const { user } = useAuth();
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    if (!user) {
+      alert("Please login to add items to cart.");
+      navigate("/login");
+      return;
+    }
+    addToCart({
+      id: "apex-75",
+      name: "The Apex-75 Custom",
+      price: 249.00,
+      img: images[0],
+      status: "In Stock",
+      specs: "75% / Alu 6063",
+    });
+    alert("Added to cart!");
+  };
 
   const decreaseQuantity = () => {
     if (quantity > 1) setQuantity(quantity - 1);
@@ -150,7 +172,7 @@ export default function ProductDetail() {
                 <input className="w-full h-full bg-transparent border-none text-center font-label-sm text-label-sm text-on-surface focus:ring-0 p-0 m-0" min="1" type="number" value={quantity} readOnly />
                 <button onClick={increaseQuantity} className="w-10 h-full flex items-center justify-center bg-surface-container-high text-on-surface hover:text-primary hover:bg-surface-container-highest transition-colors"><span className="material-symbols-outlined text-[18px]">add</span></button>
               </div>
-              <button className="flex-grow bg-primary text-on-primary font-headline-md text-[14px] font-semibold uppercase tracking-wider h-12 rounded-lg glow-hover transition-shadow flex items-center justify-center gap-2">
+              <button onClick={handleAddToCart} className="flex-grow bg-primary text-on-primary font-headline-md text-[14px] font-semibold uppercase tracking-wider h-12 rounded-lg glow-hover transition-shadow flex items-center justify-center gap-2">
                 <span className="material-symbols-outlined">shopping_cart</span> Add to Cart
               </button>
             </div>
