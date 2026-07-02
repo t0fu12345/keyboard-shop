@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>News &amp; Blog - TACTILE LUXE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary-fixed": "#d8e2ff",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "tertiary-container": "#2372e5",
+                        "secondary": "#565e74",
+                        "primary-fixed": "#f8d8ff",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#9900cf",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed": "#131b2e",
+                        "primary": "#9700cd",
+                        "outline-variant": "#d4c0d7",
+                        "primary-fixed-dim": "#ecb2ff",
+                        "on-tertiary-fixed": "#001a42",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface-variant": "#514255",
+                        "secondary-fixed": "#dae2fd",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#ffffff",
+                        "on-secondary-container": "#5c647a",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#bd00ff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#0059c0",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-container": "#ffffff",
+                        "background": "#f7f9fb",
+                        "inverse-primary": "#ecb2ff",
+                        "on-primary-fixed-variant": "#74009f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#320047",
+                        "outline": "#837186",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "sm": "16px",
+                        "margin-mobile": "16px",
+                        "lg": "48px",
+                        "xs": "8px",
+                        "xl": "80px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Geist"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-md": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-nav {
+            background-color: rgba(247, 249, 251, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .card-hover:hover {
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+            border-left-width: 2px;
+            border-left-color: #BD00FF;
+            transform: translateY(-2px);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+            border-left-width: 2px;
+            border-left-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white pt-24">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 max-w-[1440px] mx-auto glass-nav border-b border-outline-variant shadow-sm left-0 right-0">
+<div class="flex items-center gap-lg">
+<a class="font-display-lg text-headline-md md:text-display-lg tracking-tighter text-primary" href="#">TACTILE LUXE</a>
+<ul class="hidden md:flex items-center gap-gutter">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Keyboards</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Keycaps</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Switches</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Accessories</a></li>
+<li><a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md text-body-md" href="#">Support</a></li>
+</ul>
+</div>
+<div class="flex items-center gap-md text-primary">
+<button class="hover:bg-surface-container-low p-2 rounded-full transition-all duration-200 active:scale-95 duration-100 ease-in-out">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="hover:bg-surface-container-low p-2 rounded-full transition-all duration-200 active:scale-95 duration-100 ease-in-out">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="hover:bg-surface-container-low p-2 rounded-full transition-all duration-200 active:scale-95 duration-100 ease-in-out">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<!-- Header Section -->
+<header class="mb-xl text-center md:text-left flex flex-col md:flex-row justify-between items-end gap-gutter">
+<div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-sm">News &amp; Insights</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Dive deep into the world of mechanical keyboards. From switch teardowns to artisan keycap spotlights, we bring you precision-engineered knowledge.</p>
+</div>
+<!-- Category Chips -->
+<div class="flex flex-wrap gap-xs justify-center md:justify-end">
+<button class="bg-[#F5E6FF] text-primary-container font-label-sm text-label-sm px-4 py-2 rounded-full hover:bg-surface-container-high transition-colors">All</button>
+<button class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-4 py-2 rounded-full hover:bg-surface-container-high transition-colors">Guides</button>
+<button class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-4 py-2 rounded-full hover:bg-surface-container-high transition-colors">Reviews</button>
+<button class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-4 py-2 rounded-full hover:bg-surface-container-high transition-colors">News</button>
+</div>
+</header>
+<!-- Featured Article (Bento Style) -->
+<section class="mb-xl grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden card-hover group cursor-pointer relative h-[500px]">
+<img alt="Featured Image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A macro shot of a premium mechanical keyboard switch being lubricated with a fine brush. The lighting is crisp, studio-quality white light highlighting the shiny plastic housing and the metal spring. The background is a clean, slightly blurred light gray desk mat. The overall aesthetic is highly professional, clean, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdbAbs-hXrevHUecFaLJYbyQ_KQJnuugXrt_Q5X1hU52QqM8rgDfXOrnTcMPCsPUgzllVWE3h0qFRY1CgQ0c2dfzF9dIlHLF0NPufhccI3FT4KechFwIpywarL_m2qHv8vgiZ5NwO__QG9MFCUJKdNy6Gl6uA4bVJBLH5AwgsiNpcvyOQyTtIEsc6uEl-KdvKp0uov0_ksWpcxHHx5VW2xe7etFkub7YRKoBXpDW_MPJmSmbQ64vP5OIEu-UBMZydyqe6jducNhbU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-lg w-full">
+<span class="inline-block bg-primary-container text-white font-label-sm text-label-sm px-3 py-1 rounded-full mb-md">Guide</span>
+<h2 class="font-headline-md text-headline-md text-white mb-sm group-hover:text-inverse-primary transition-colors">The Ultimate Switch Lubing Guide: 2024 Edition</h2>
+<p class="font-body-md text-body-md text-surface-variant max-w-2xl mb-md">Unlock the true potential of your linear switches. We break down the exact viscosity requirements for different switch materials to achieve that perfect 'thock'.</p>
+<div class="flex items-center gap-sm text-inverse-on-surface font-label-sm text-label-sm">
+<span>Oct 24, 2024</span>
+<span class="w-1 h-1 bg-outline rounded-full"></span>
+<span>8 min read</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="flex-1 bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden card-hover p-md flex flex-col justify-between cursor-pointer">
+<div>
+<span class="inline-block bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full mb-md">Review</span>
+<h3 class="font-headline-md text-[20px] leading-snug text-on-surface mb-sm">Review: Nebula 65% - Is it worth the hype?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">A deep dive into the CNC aluminum chassis and gasket mount implementation of the year's most anticipated board.</p>
+</div>
+<div class="mt-md text-secondary font-label-sm text-label-sm">Oct 20, 2024</div>
+</div>
+<div class="flex-1 bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden card-hover p-md flex flex-col justify-between cursor-pointer">
+<div>
+<span class="inline-block bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full mb-md">News</span>
+<h3 class="font-headline-md text-[20px] leading-snug text-on-surface mb-sm">Introducing the TACTILE V2 Switches</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Our new long-pole tactile switches are here, featuring a proprietary POM blend housing for smoother travel.</p>
+</div>
+<div class="mt-md text-secondary font-label-sm text-label-sm">Oct 15, 2024</div>
+</div>
+</div>
+</section>
+<!-- Grid Articles -->
+<h2 class="font-headline-md text-headline-md text-on-surface mb-lg border-b border-outline-variant pb-sm">Latest Articles</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden card-hover flex flex-col cursor-pointer">
+<div class="h-48 relative overflow-hidden bg-surface-container-high">
+<img alt="Article Image" class="w-full h-full object-cover" data-alt="A top-down shot of various artisan keycaps neatly arranged on a white grid background. The keycaps are made of resin with intricate details, catching the bright, clean studio lighting. The overall feel is premium, organized, and colorful against a stark white backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzp39j0lVgfilq7sl8HWq4RYt69sBMdWLv05jYOvI2JzK9JkayKfBETTVORGav3DxxJURELUS6lRONHSHH9SBp1Xm6Dgwu1t9eSZhXJMf14M8zKage7NnEhRIlDaBFxu5RopbQT-AX0ZvykP7Bff9BjnPjAn1u1CimbUe7Xfyv7INaEa8WJ5rJt3OHzRHMXY4HYzcEgoeBviZnzwX2ckTSsqUIrLRlMz5VrD49P9KA_ug_rZEExwQWlMb4Dwgq6dLYwVo85r1AMBs"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<span class="text-primary font-label-sm text-label-sm mb-xs">Showcase</span>
+<h3 class="font-headline-md text-[20px] leading-snug text-on-surface mb-sm hover:text-primary transition-colors">Top Artisan Keycaps of Fall</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow line-clamp-3">Elevate your aesthetics. We've curated a list of the most stunning resin and metal artisans releasing this season.</p>
+<div class="flex items-center justify-between mt-auto pt-md border-t border-surface-container-high">
+<span class="text-secondary font-label-sm text-label-sm">Oct 10, 2024</span>
+<span class="material-symbols-outlined text-outline">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden card-hover flex flex-col cursor-pointer">
+<div class="h-48 relative overflow-hidden bg-surface-container-high">
+<img alt="Article Image" class="w-full h-full object-cover" data-alt="A close-up of a person soldering wires onto a custom mechanical keyboard PCB. A soldering iron is clearly visible with a tiny wisp of smoke. The lighting is bright and focused on the soldering joint. The environment suggests a clean, modern workshop in light mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK-5wspFa8TsnjyEysGGQ9-DFBtaBRyZRA08JFJURBGs7e7k82cRlarmrNJWY5sUy1t2pgv7vXATz1PBEvOQnbIxRwR7W-_hU8VuB0YoIvV4XuRqddezlX9GbMwhO_yNd8a3vKzR3c_CayaSqYmrKKgT61T82C20GU6xuR4xab2rytcPHuwuJpx5BfZ-REMQqQqBNjYj5_nYSvqjl2vtCqnfIGD_8kd3r1xPaEAg__gPh4PSRZYgzoumWlXNMNRI4Ai5_ZWsd1Cg0"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<span class="text-primary font-label-sm text-label-sm mb-xs">Guide</span>
+<h3 class="font-headline-md text-[20px] leading-snug text-on-surface mb-sm hover:text-primary transition-colors">Soldering 101 for Custom Builds</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow line-clamp-3">Don't be intimidated by bare PCBs. Learn the basics of soldering switches securely and cleanly.</p>
+<div class="flex items-center justify-between mt-auto pt-md border-t border-surface-container-high">
+<span class="text-secondary font-label-sm text-label-sm">Oct 05, 2024</span>
+<span class="material-symbols-outlined text-outline">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden card-hover flex flex-col cursor-pointer">
+<div class="h-48 relative overflow-hidden bg-surface-container-high">
+<img alt="Article Image" class="w-full h-full object-cover" data-alt="A clean, minimalist desk setup featuring a pristine white 60% mechanical keyboard, a high-end wireless mouse, and a small potted plant on a light grey desk mat. Natural light streams in from a nearby window, creating soft shadows. The aesthetic is bright, professional, and very clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQfsTD1FBcczbLpOEXIKNY79Gy0dpMWeJnYiXUloeeD-PG9x6pLXkx8RpLuNQsq-dDbTX-E467FWlmyLNiLd9_G8JsGZDKLRi3vB6L28aa09PtMtQcZ0je_LIX6irXcLFPPbeZ2VfhAixdYssdIMLIvc205ujR2A5hZ2WryWiHkU0FtFg3LLIy3sFMeZHpkC8w4h-_jSrNhCzWnFRTCvVYhto-SsZPhfqC5TlWL2GAusesNHCL5QgsKa2bym3b9nTt7Hs7ZYuUQm8"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<span class="text-primary font-label-sm text-label-sm mb-xs">Inspiration</span>
+<h3 class="font-headline-md text-[20px] leading-snug text-on-surface mb-sm hover:text-primary transition-colors">Minimalist Desk Setups We Love</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow line-clamp-3">How a clutter-free environment and the right keyboard can boost your productivity and focus.</p>
+<div class="flex items-center justify-between mt-auto pt-md border-t border-surface-container-high">
+<span class="text-secondary font-label-sm text-label-sm">Sep 28, 2024</span>
+<span class="material-symbols-outlined text-outline">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden card-hover flex flex-col cursor-pointer">
+<div class="h-48 relative overflow-hidden bg-surface-container-high">
+<img alt="Article Image" class="w-full h-full object-cover" data-alt="A comparison shot of three different mechanical keyboard switch types side-by-side on a white reflective surface. One linear (red stem), one tactile (brown stem), and one clicky (blue stem). The lighting is bright and evenly distributed, highlighting the colors of the stems against the light background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg6FVAqdMIp8Oy-LU9H8L3GTaYxfA89WjLdo6uZLbUchcrSEwjXUl85zubgP-w6xF5mFdpZNQStUemgdXHazQM2CiMWecnAl1afGY87PymWZVrpEo38ou_4GddBzksaU-vPgH9eJnOuvhFxW5mXbuQh18z1Bl0XlX6Q5zFRk2Lz4adY8sgHgVXoX-PSSXOiOiTW1aOcC0XJtXya3bAd8CuuqsDoS4S9kAJVVZ2G22X5Eo-jVzv1nQVHye2SCC8xXm2oW4Q2xNBd6U"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<span class="text-primary font-label-sm text-label-sm mb-xs">Guide</span>
+<h3 class="font-headline-md text-[20px] leading-snug text-on-surface mb-sm hover:text-primary transition-colors">Linear vs Tactile vs Clicky</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow line-clamp-3">The age-old debate settled. Find out which switch type is right for your typing or gaming style.</p>
+<div class="flex items-center justify-between mt-auto pt-md border-t border-surface-container-high">
+<span class="text-secondary font-label-sm text-label-sm">Sep 20, 2024</span>
+<span class="material-symbols-outlined text-outline">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Newsletter CTA (occupies 2 columns on lg screens) -->
+<div class="md:col-span-2 bg-[#F1F5F9] rounded-xl border border-outline-variant p-lg flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-primary mb-sm">mail</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Stay Updated</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg max-w-md">Get the latest reviews, guides, and news delivered straight to your inbox weekly.</p>
+<div class="flex w-full max-w-md">
+<input class="flex-grow bg-white border border-outline-variant rounded-l-lg px-4 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 font-body-md text-body-md text-on-surface" placeholder="Your email address" type="email"/>
+<button class="bg-primary-container text-white px-6 py-2 rounded-r-lg font-label-sm text-label-sm hover:bg-primary-container/90 transition-colors">Subscribe</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-xl flex justify-center items-center gap-sm">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-[#F5E6FF] text-primary-container font-label-sm text-label-sm font-bold flex items-center justify-center">1</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant hover:bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center transition-colors">2</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant hover:bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center transition-colors">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-start gap-gutter max-w-[1440px] mx-auto bg-surface-container-lowest border-t border-outline-variant">
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface mb-sm">TACTILE LUXE</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 TACTILE LUXE. Precision Engineered.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-gutter lg:gap-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Shipping Info</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Contact Us</a>
+</div>
+</footer>
+</body></html>

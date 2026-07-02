@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .bento-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card-hover:hover {
+            transform: translateY(-4px);
+            border-left: 1px solid #BD00FF;
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4c0d7;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9700cd;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#514255",
+                      "tertiary-fixed": "#d8e2ff",
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#dae2fd",
+                      "primary": "#9700cd",
+                      "on-primary-container": "#ffffff",
+                      "surface-container": "#eceef0",
+                      "surface": "#f7f9fb",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#ecb2ff",
+                      "on-tertiary-container": "#ffffff",
+                      "tertiary-container": "#2372e5",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#d4c0d7",
+                      "surface-container-highest": "#e0e3e5",
+                      "tertiary": "#0059c0",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary-container": "#5c647a",
+                      "background": "#f7f9fb",
+                      "tertiary-fixed-dim": "#adc6ff",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e6e8ea",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#ecb2ff",
+                      "outline": "#837186",
+                      "on-tertiary-fixed-variant": "#004395",
+                      "secondary-fixed": "#dae2fd",
+                      "on-secondary-fixed-variant": "#3f465c",
+                      "surface-variant": "#e0e3e5",
+                      "surface-dim": "#d8dadc",
+                      "primary-fixed": "#f8d8ff",
+                      "secondary-fixed-dim": "#bec6e0",
+                      "on-surface": "#191c1e",
+                      "on-primary-fixed": "#320047",
+                      "primary-container": "#bd00ff",
+                      "inverse-surface": "#2d3133",
+                      "surface-tint": "#9900cf",
+                      "inverse-on-surface": "#eff1f3",
+                      "secondary": "#565e74",
+                      "on-tertiary-fixed": "#001a42",
+                      "on-secondary-fixed": "#131b2e",
+                      "on-primary-fixed-variant": "#74009f",
+                      "on-background": "#191c1e",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "xs": "8px",
+                      "base": "4px",
+                      "md": "24px",
+                      "margin-desktop": "40px",
+                      "sm": "16px",
+                      "lg": "48px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Geist"],
+                      "body-md": ["Geist"],
+                      "label-sm": ["JetBrains Mono"],
+                      "display-lg-mobile": ["Geist"],
+                      "headline-md": ["Geist"],
+                      "body-lg": ["Geist"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 max-w-[1440px] left-1/2 -translate-x-1/2 bg-surface/70 backdrop-blur-md border-b border-outline-variant shadow-sm glass-nav">
+<div class="font-display-lg text-display-lg tracking-tighter text-primary">TACTILE LUXE</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Keyboards</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md" href="#">Keycaps</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Switches</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Accessories</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low transition-all duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low transition-all duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary">person</span>
+</button>
+</div>
+</header>
+<main class="pt-32 pb-xl px-margin-desktop max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filter -->
+<aside class="w-full md:w-64 flex-shrink-0 space-y-lg">
+<div>
+<h2 class="font-headline-md text-headline-md mb-md text-on-surface">Bộ lọc sản phẩm</h2>
+<!-- Material Filter -->
+<div class="mb-lg">
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-sm">Chất liệu</h3>
+<div class="space-y-xs">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="w-5 h-5 border-outline-variant rounded text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">PBT Double-shot</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="w-5 h-5 border-outline-variant rounded text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">ABS High-grade</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="w-5 h-5 border-outline-variant rounded text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">Polycarbonate</span>
+</label>
+</div>
+</div>
+<!-- Profile Filter -->
+<div class="mb-lg">
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-sm">Profile</h3>
+<div class="flex flex-wrap gap-xs">
+<button class="px-sm py-xs bg-surface-container-low text-on-surface-variant font-label-sm rounded-full hover:bg-primary-container hover:text-on-primary transition-all">Cherry</button>
+<button class="px-sm py-xs bg-primary-container text-on-primary font-label-sm rounded-full shadow-sm">OEM</button>
+<button class="px-sm py-xs bg-surface-container-low text-on-surface-variant font-label-sm rounded-full hover:bg-primary-container hover:text-on-primary transition-all">SA</button>
+<button class="px-sm py-xs bg-surface-container-low text-on-surface-variant font-label-sm rounded-full hover:bg-primary-container hover:text-on-primary transition-all">KAT</button>
+<button class="px-sm py-xs bg-surface-container-low text-on-surface-variant font-label-sm rounded-full hover:bg-primary-container hover:text-on-primary transition-all">XDA</button>
+</div>
+</div>
+<!-- Color Filter -->
+<div class="mb-lg">
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-sm">Màu sắc</h3>
+<div class="grid grid-cols-5 gap-xs">
+<button class="w-8 h-8 rounded-full bg-on-surface border border-outline-variant"></button>
+<button class="w-8 h-8 rounded-full bg-white border border-outline-variant"></button>
+<button class="w-8 h-8 rounded-full bg-primary border border-outline-variant"></button>
+<button class="w-8 h-8 rounded-full bg-tertiary border border-outline-variant"></button>
+<button class="w-8 h-8 rounded-full bg-on-surface-variant border border-outline-variant"></button>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Cần hỗ trợ?</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Tư vấn chọn Keycap phù hợp với bàn phím của bạn.</p>
+<button class="mt-md w-full py-sm border border-primary text-primary font-bold rounded-lg hover:bg-primary-container/10 transition-all active:scale-95">Liên hệ ngay</button>
+</div>
+</aside>
+<!-- Product Grid -->
+<section class="flex-grow">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xs">Bộ sưu tập Keycap</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg">Khám phá những bộ nút phím tinh xảo, tối ưu hóa cảm giác gõ.</p>
+</div>
+<div class="hidden lg:block text-outline font-label-sm">
+                        Đang hiển thị 1-12 của 48 sản phẩm
+                    </div>
+</div>
+<!-- Bento Grid Layout for Products -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 (Large Feature) -->
+<div class="md:col-span-2 lg:col-span-2 relative group overflow-hidden bg-white border border-outline-variant rounded-xl bento-card-hover">
+<div class="aspect-[16/9] w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A premium close-up shot of high-quality PBT keycaps with a deep purple and matte black aesthetic. The lighting is soft and moody, highlighting the refined texture and sharp legends on the Cherry profile keys. The scene is set in a modern, professional home office with a minimalist desk setup in the background, maintaining a corporate light mode vibe with subtle glassmorphism elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxS0nJqQYBpaZ1EkP-Xz3Bu29e8XS16KXY2uR75rpwEhdO4hKW50ewZqcGXahxdSCHID1sXQDkv1Jqa0aYlbgB4Q37TZfZOHj7bZP56z7OE6KZ_AW-EnPsp-hS_UpflSp1yyO-sbHgXIskDu-LdkhazoGOCBDMt4T_V1SA5osg1gk9oegs3px5ZpaOZT7lkF6KqfUohfAB3bLYKkB9TZ1Xfv_boIcnFWBUZAOn6U0tvmrR9mHLmwSmFW6DVkFImmhO26DR6Nyl_fU"/>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<span class="px-sm py-1 bg-primary-container text-on-primary text-[10px] uppercase font-bold tracking-widest rounded-full mb-xs inline-block">Mới nhất</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Nocturnal Purple - PBT Double-shot</h3>
+</div>
+<p class="font-headline-md text-headline-md text-primary">1.850.000đ</p>
+</div>
+<div class="flex gap-md mb-md">
+<span class="flex items-center gap-xs font-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">keyboard</span> Cherry Profile</span>
+<span class="flex items-center gap-xs font-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">layers</span> 165 Phím</span>
+</div>
+<button class="w-full py-md bg-primary text-on-primary font-bold rounded-lg flex items-center justify-center gap-sm group-hover:bg-primary-container transition-all">
+<span>Thêm vào giỏ hàng</span>
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group overflow-hidden bg-white border border-outline-variant rounded-xl bento-card-hover">
+<div class="aspect-square w-full bg-surface-container-highest overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A clean, minimalist product shot of white and grey keycaps in an OEM profile. The lighting is bright and airy, representing a professional light mode workspace. The background is a soft blue-grey, emphasizing the sharp legends and high-quality ABS material. The image conveys high energy and precision for a tech-focused professional audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLRtPBoOF9XsKl0GXwOE3MKZ4_89NDqt-01W08KuCMjd2KywU_I3JWNJLkbMfGEHvMMHvjl-0ysoiho6IKdXvabjbUz0BD-YYGz8jzWQw7tp9GDtRIFg-g7xZVvHyRVdzdS--oBIjpw2mtNBTdULEPb9JZYt0vaN_Z1oA-TyvSAjMEH27Ri66Hsyqhv2-xlhDF29Pq2NSdf0qxSzgZ2qN6N3O2M0_nsqI34G-U9-NyRRlol_7_bgb4j4ROk3WWTBEBZQRkX9849hg"/>
+<button class="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-md rounded-full shadow-sm text-primary hover:bg-primary hover:text-white transition-all opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs truncate">Modern Minimalist Grey</h3>
+<p class="font-label-sm text-on-surface-variant mb-md">ABS High-grade • OEM</p>
+<div class="flex items-center justify-between">
+<p class="font-body-lg text-body-lg font-bold text-primary">1.200.000đ</p>
+<button class="w-10 h-10 bg-surface-container-low text-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group overflow-hidden bg-white border border-outline-variant rounded-xl bento-card-hover">
+<div class="aspect-square w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Vibrant, high-contrast keycaps in a retro cybernetic style, featuring deep purples and neon accents. The setting is a clean, modern lab-like environment with soft lighting and professional clarity. The keycaps are made of thick PBT and shown in a KAT profile, emphasizing their ergonomic shape and textured surface for high-performance use." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTgSpeImYERkgmoGpmY4La2q-WUxDDIjCPu8Kjtz6zFwC7Sa0MVbvNjeVQPrIBAmD98B-NcVHAkWyZqcp5SzjX1cp0aaB-6u1qMLSBTgAWJjhMVs96QZ-xFI-4Y6j964RmEDXT-P_cUbBW3sgCqKo9gPwIAz6ECp_u9iozgakQck3CqheQbA4i6JlJm8r9UvWUyjSx-P_PwFxcxW5NnvdIWYkD_Xk8QgEKafPABEMMaN3GmjFmv64pBjFylFDH3eoozlE1JKSXe9U"/>
+</div>
+<div class="p-md">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs truncate">Cyber-tactile V2</h3>
+<p class="font-label-sm text-on-surface-variant mb-md">PBT Double-shot • KAT</p>
+<div class="flex items-center justify-between">
+<p class="font-body-lg text-body-lg font-bold text-primary">2.150.000đ</p>
+<button class="w-10 h-10 bg-surface-container-low text-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group overflow-hidden bg-white border border-outline-variant rounded-xl bento-card-hover">
+<div class="aspect-square w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Sleek, transparent polycarbonate keycaps with a futuristic frosted finish. The lighting is diffused and professional, casting subtle shadows that highlight the geometric precision. The aesthetic is ultra-modern and corporate, with a focus on high-clarity and sophisticated tech flair, perfectly suited for a premium keyboard store." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzeRygPjIBrXJ5xFmwUAJhrM8FvCOmlpi18_sIKZip7_EsKu1g8Ic91s12yzUHM-TRZLDtgltqtX-ttniGoJmI9pRF88hxdjRdEDJFlukQQSh7RmhMbFMuJkzQSJFVuWhzjfjRE2Q4edKhVJ1XnQw1GhjCjWA2M8q_O-zaLhPF4yzp21EYcSULnqXgKv4bqLqdjCUa5o3U8nL2YuxfCxqAYV41J6c9xNqq2-3LLmHd5iK1yB5yiLKysqVt7wTMnAREwFYjJZSbgWg"/>
+</div>
+<div class="p-md">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs truncate">Frosted Glass Edition</h3>
+<p class="font-label-sm text-on-surface-variant mb-md">Polycarbonate • Cherry</p>
+<div class="flex items-center justify-between">
+<p class="font-body-lg text-body-lg font-bold text-primary">1.680.000đ</p>
+<button class="w-10 h-10 bg-surface-container-low text-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group overflow-hidden bg-white border border-outline-variant rounded-xl bento-card-hover">
+<div class="aspect-square w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Classic professional keycaps in a cream and coffee brown color scheme, evoking a sense of refined power and traditional craftsmanship. The SA profile creates a tall, bold presence on a high-end mechanical keyboard. The image is captured with professional clarity, using ambient shadows to create depth and a luxurious feel within a light-themed environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYS-LqNBNRQpbU7A4WPDbQvn8sCKYZw1K098tXXOCX-4AwEKjL2zhnqSJCQB0xb1kVvVKBMDdt9RfUD6tKa2xtMClxsSRTvSY_vTIsa4KOvr7gmcKAMfKOpy9og6inM-0vSFZCW7hJOnvzSjgxQhSYK3iJLkuW-fxHG6yE6DOLdzkgr8dUUu50WthpdeKBt9-3eHVXSr84l-n8VPAhd-q01w89cZjGKVhmRHrZrcSRU8qTPUpIg3nFYInDKiYgl7t4LQHj1f-58-Y"/>
+</div>
+<div class="p-md">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs truncate">Artisan Roast - SA</h3>
+<p class="font-label-sm text-on-surface-variant mb-md">PBT Dye-sub • SA Profile</p>
+<div class="flex items-center justify-between">
+<p class="font-body-lg text-body-lg font-bold text-primary">2.400.000đ</p>
+<button class="w-10 h-10 bg-surface-container-low text-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-xl flex justify-center items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold">1</button>
+</div></section></div></main></body></html>

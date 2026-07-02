@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nghệ thuật Build Keyboard - TACTILE LUXE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#ecb2ff",
+                      "secondary-fixed-dim": "#bec6e0",
+                      "secondary-fixed": "#dae2fd",
+                      "on-secondary-container": "#5c647a",
+                      "outline": "#837186",
+                      "on-tertiary-container": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e0e3e5",
+                      "on-tertiary-fixed": "#001a42",
+                      "surface-container-high": "#e6e8ea",
+                      "primary-fixed": "#f8d8ff",
+                      "secondary-container": "#dae2fd",
+                      "inverse-primary": "#ecb2ff",
+                      "on-secondary-fixed": "#131b2e",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-primary-fixed": "#320047",
+                      "secondary": "#565e74",
+                      "primary-container": "#bd00ff",
+                      "tertiary": "#0059c0",
+                      "on-surface-variant": "#514255",
+                      "surface-tint": "#9900cf",
+                      "on-secondary-fixed-variant": "#3f465c",
+                      "background": "#f7f9fb",
+                      "surface-dim": "#d8dadc",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#74009f",
+                      "on-background": "#191c1e",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed": "#d8e2ff",
+                      "surface": "#f7f9fb",
+                      "outline-variant": "#d4c0d7",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#2372e5",
+                      "primary": "#9700cd",
+                      "on-tertiary-fixed-variant": "#004395",
+                      "on-primary-container": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "inverse-on-surface": "#eff1f3",
+                      "surface-container-low": "#f2f4f6",
+                      "tertiary-fixed-dim": "#adc6ff",
+                      "surface-container": "#eceef0",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "base": "4px",
+                      "margin-desktop": "40px",
+                      "gutter": "24px",
+                      "xs": "8px",
+                      "lg": "48px",
+                      "sm": "16px",
+                      "xl": "80px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "display-lg-mobile": [
+                              "Geist"
+                      ],
+                      "body-lg": [
+                              "Geist"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Geist"
+                      ],
+                      "display-lg": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body { background-color: #F8FAFC; }
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased bg-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl shadow-sm border-b border-outline-variant/30 transition-all duration-300 ease-in-out glass-nav">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-[1440px] mx-auto">
+<div class="font-display-lg text-headline-md font-bold tracking-tighter text-primary dark:text-primary">
+                TACTILE LUXE
+            </div>
+<div class="hidden md:flex gap-md">
+<a class="text-on-surface dark:text-on-surface hover:text-secondary-fixed-dim transition-colors font-button text-button uppercase tracking-wider" href="#">Custom Keyboards</a>
+<a class="text-on-surface dark:text-on-surface hover:text-secondary-fixed-dim transition-colors font-button text-button uppercase tracking-wider" href="#">Keycaps</a>
+<a class="text-on-surface dark:text-on-surface hover:text-secondary-fixed-dim transition-colors font-button text-button uppercase tracking-wider" href="#">Switches</a>
+<a class="text-on-surface dark:text-on-surface hover:text-secondary-fixed-dim transition-colors font-button text-button uppercase tracking-wider" href="#">Accessories</a>
+</div>
+<div class="flex gap-sm">
+<button class="text-primary dark:text-primary hover:backdrop-blur-2xl hover:bg-surface-bright/10 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-primary dark:text-primary hover:backdrop-blur-2xl hover:bg-surface-bright/10 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="text-primary dark:text-primary hover:backdrop-blur-2xl hover:bg-surface-bright/10 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-[104px] pb-xl max-w-[1440px] mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Content -->
+<article class="md:col-span-8 bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden">
+<!-- Hero Image -->
+<div class="w-full h-[400px] relative">
+<img class="w-full h-full object-cover" data-alt="A macro photography shot of a highly customized mechanical keyboard with premium PBT keycaps in a light, modern workspace. The lighting is soft and bright, emphasizing the tactile texture of the keys and the machined aluminum case. The overall aesthetic is clean, professional, and slightly futuristic, fitting a high-end tech blog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNIkxY7w-QhhWIu-aSS6AgcT5qX7ICAOCVWKuTw9P9I7iOz8fbw6PjPMLe4mBHSGtvJfZvCdCsgScd-NpRezVyClU2w4q5pg1zbPDFl95QYxfpPMudPaQPwFtjtXS5jrPtpIQoS_s-ozxfO6hrW_2Pj27MCOfxS-q41furiYgiybJ_4WqnaymfnW2Mnz482zb79QE1EeOJu7lc0bDov9a0kwZWiGavpphE1I6ddJ-cv2MA8TGrCY1rT1NKgzvBezJ822VCdF5V1So"/>
+</div>
+<div class="p-lg">
+<!-- Meta -->
+<div class="flex items-center gap-sm mb-md">
+<span class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider">Guide</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Oct 24, 2024</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 8 min read
+                    </span>
+</div>
+<!-- Title -->
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-on-surface mb-lg">Nghệ thuật Build Keyboard: Hướng dẫn cho người mới bắt đầu</h1>
+<!-- Author -->
+<div class="flex items-center gap-md mb-xl border-b border-surface-container pb-md">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of an industrial designer or tech reviewer in a well-lit studio. They are looking directly at the camera with a confident, friendly expression. The background is slightly blurred with subtle hints of tech equipment. The lighting is bright and clear, reflecting a modern, corporate tech style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGLutBsfguLfOfsO_fIkoUV7f6M6-x2CyHkQGSQf1av25GuKbUKrvIxK1TEZ7U60NZ3EgKaqK72QzdwC_O3zj4llG2TgwaUhlS0S0k_oUvQArw8Y5PDtY6AWAHAFpOwiXsxQBxYhxWNhL2Iiw22eJqtU5xlqvHqamN0UmPfapc2TZ5vN3mzaYeK02IkbNM3_oCRCEx_-AjALzasjrbkW0wx93GyjgTKsDYXyNaCRUKQfJG02zLcYo3jGAf7wKMaAyQfivL8su8c7w"/>
+</div>
+<div>
+<p class="font-headline-md text-[16px] font-semibold text-on-surface">Minh Tran</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Senior Build Specialist</p>
+</div>
+</div>
+<!-- Content Body -->
+<div class="font-body-lg text-body-lg text-on-surface space-y-lg">
+<p class="leading-relaxed">
+                        Bước chân vào thế giới của mechanical keyboards (bàn phím cơ) giống như mở ra một cánh cửa dẫn đến vô vàn khả năng cá nhân hóa. Nó không chỉ đơn thuần là công cụ nhập liệu, mà là một tác phẩm nghệ thuật kỹ thuật số, phản ánh phong cách và sự tỉ mỉ của người dùng.
+                    </p>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-xl mb-md">1. Giải phẫu một chiếc Bàn phím Cơ</h2>
+<p class="leading-relaxed">
+                        Trước khi bắt tay vào build, việc hiểu rõ các thành phần cơ bản là tối quan trọng. Mỗi bộ phận đóng một vai trò riêng biệt, quyết định trực tiếp đến âm thanh (sound profile) và cảm giác gõ (typing feel).
+                    </p>
+<ul class="list-none space-y-md ml-sm border-l-2 border-primary-container pl-md">
+<li><strong class="text-on-background">Case (Vỏ):</strong> Nhôm CNC mang lại sự đầm chắc, trong khi Polycarbonate (PC) cho âm thanh trầm ấm hơn.</li>
+<li><strong class="text-on-background">PCB (Bảng mạch):</strong> Trái tim của bàn phím. Hotswap PCB cho phép thay switch không cần rã hàn.</li>
+<li><strong class="text-on-background">Plate (Tấm nền):</strong> Đồng, FR4, hay Carbon Fiber? Plate ảnh hưởng lớn đến độ cứng khi gõ.</li>
+</ul>
+<div class="bg-surface p-md rounded-lg border border-surface-variant my-lg">
+<p class="font-label-sm text-label-sm text-primary-container mb-xs uppercase tracking-wider">Tech Spec Snapshot</p>
+<code class="font-label-sm text-label-sm text-on-surface block whitespace-pre-wrap">
+Mounting Style: Gasket Mount
+Typing Angle: 7°
+Front Height: 18.5mm
+                        </code>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-xl mb-md">2. Chọn Switch: Linh hồn của trải nghiệm</h2>
+<p class="leading-relaxed">
+                        Bạn thuộc team Linear mượt mà, Tactile khấc nảy, hay Clicky ồn ào? Sự lựa chọn switch sẽ định hình toàn bộ cảm nhận của bạn. Đừng quên lube switch để đạt được độ mượt tối đa.
+                    </p>
+</div>
+</div>
+</article>
+<!-- Sidebar -->
+<aside class="md:col-span-4 space-y-xl">
+<!-- Related News -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-md">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Related Insights</h3>
+<div class="space-y-md">
+<a class="group block border-b border-surface-container pb-md last:border-0 last:pb-0" href="#">
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors font-medium">Đánh giá Top 5 Tactile Switches năm 2024</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Oct 20, 2024</p>
+</a>
+<a class="group block border-b border-surface-container pb-md last:border-0 last:pb-0" href="#">
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors font-medium">Nghệ thuật Lube Switch: Bí quyết từ chuyên gia</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Oct 15, 2024</p>
+</a>
+<a class="group block border-b border-surface-container pb-md last:border-0 last:pb-0" href="#">
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors font-medium">Keycap Profile Guide: Cherry, SA hay MT3?</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Oct 10, 2024</p>
+</a>
+</div>
+</div>
+<!-- Tags -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-md">
+<h3 class="font-headline-md text-[18px] font-semibold text-on-surface mb-md">Popular Tags</h3>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-3 py-1.5 rounded-full cursor-pointer hover:bg-[#F5E6FF] hover:text-[#BD00FF] transition-colors">#CustomKB</span>
+<span class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-3 py-1.5 rounded-full cursor-pointer hover:bg-[#F5E6FF] hover:text-[#BD00FF] transition-colors">#MechanicalKeyboard</span>
+<span class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-3 py-1.5 rounded-full cursor-pointer hover:bg-[#F5E6FF] hover:text-[#BD00FF] transition-colors">#Guide</span>
+<span class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-3 py-1.5 rounded-full cursor-pointer hover:bg-[#F5E6FF] hover:text-[#BD00FF] transition-colors">#Switches</span>
+<span class="bg-[#F1F5F9] text-[#475569] font-label-sm text-label-sm px-3 py-1.5 rounded-full cursor-pointer hover:bg-[#F5E6FF] hover:text-[#BD00FF] transition-colors">#Mods</span>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-24 pb-12 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-[1440px] mx-auto">
+<div>
+<div class="font-display-lg text-headline-md font-extrabold text-primary mb-md">
+                    TACTILE LUXE
+                </div>
+<p class="font-body-md text-body-md text-secondary-fixed-dim dark:text-secondary-fixed-dim">
+                    © 2024 TACTILE LUXE. ENGINEERED FOR PRECISION.
+                </p>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Shipping</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Warranty</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+</div>
+</div>
+</footer>
+</body></html>

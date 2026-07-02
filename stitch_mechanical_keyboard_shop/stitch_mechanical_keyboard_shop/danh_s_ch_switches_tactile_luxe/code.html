@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        // Custom Font loading simulation
+        document.documentElement.style.fontFamily = "'Geist', sans-serif";
+    </script>
+<style>
+        @import url('https://fonts.cdnfonts.com/css/geist');
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .switch-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+            border-left: 1px solid #bd00ff;
+            transform: translateY(-2px);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#514255",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "primary": "#9700cd",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "surface": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ecb2ff",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-container": "#2372e5",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#d4c0d7",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary": "#0059c0",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-container": "#5c647a",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#ecb2ff",
+                        "outline": "#837186",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "secondary-fixed": "#dae2fd",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "surface-variant": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "primary-fixed": "#f8d8ff",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#320047",
+                        "primary-container": "#bd00ff",
+                        "inverse-surface": "#2d3133",
+                        "surface-tint": "#9900cf",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary": "#565e74",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-secondary-fixed": "#131b2e",
+                        "on-primary-fixed-variant": "#74009f",
+                        "on-background": "#191c1e",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "md": "24px",
+                        "margin-desktop": "40px",
+                        "sm": "16px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "label-sm": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-center bg-surface/70 backdrop-blur-md border-b border-outline-variant shadow-sm px-margin-desktop py-4">
+<nav class="w-full max-w-[1440px] flex justify-between items-center">
+<div class="flex items-center gap-xl">
+<a class="font-display-lg text-display-lg tracking-tighter text-primary" href="#">TACTILE LUXE</a>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Keyboards</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Keycaps</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md" href="#">Switches</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Accessories</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Support</a>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant scale-75">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-full py-1.5 pl-9 pr-4 text-label-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 transition-all" placeholder="Tìm kiếm switches..." type="text"/>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">person</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-xl px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter">
+<!-- Filter Sidebar -->
+<aside class="col-span-12 lg:col-span-3 space-y-lg">
+<div class="sticky top-32">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Bộ lọc</h2>
+<button class="text-label-sm text-primary hover:underline">Xóa tất cả</button>
+</div>
+<!-- Type Filter -->
+<div class="space-y-sm pb-md border-b border-outline-variant">
+<p class="font-bold text-on-surface uppercase tracking-wider text-xs">Loại Switch</p>
+<div class="flex flex-wrap gap-xs">
+<label class="cursor-pointer">
+<input class="hidden peer" type="checkbox"/>
+<span class="px-3 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container transition-all text-xs font-label-sm">Linear</span>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="hidden peer" type="checkbox"/>
+<span class="px-3 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container transition-all text-xs font-label-sm">Tactile</span>
+</label>
+<label class="cursor-pointer">
+<input class="hidden peer" type="checkbox"/>
+<span class="px-3 py-1.5 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container transition-all text-xs font-label-sm">Clicky</span>
+</label>
+</div>
+</div>
+<!-- Brand Filter -->
+<div class="space-y-sm py-md border-b border-outline-variant">
+<p class="font-bold text-on-surface uppercase tracking-wider text-xs">Thương hiệu</p>
+<div class="space-y-2">
+<label class="flex items-center gap-2 group cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Gateron</span>
+</label>
+<label class="flex items-center gap-2 group cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Cherry MX</span>
+</label>
+<label class="flex items-center gap-2 group cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">ZealPC</span>
+</label>
+<label class="flex items-center gap-2 group cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Kailh</span>
+</label>
+</div>
+</div>
+<!-- Actuation Force -->
+<div class="space-y-sm py-md">
+<p class="font-bold text-on-surface uppercase tracking-wider text-xs">Lực nhấn (cN)</p>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="35" type="range"/>
+<div class="flex justify-between text-label-sm text-on-surface-variant">
+<span>35cN</span>
+<span>100cN</span>
+</div>
+</div>
+<!-- Glass Promo Card -->
+<div class="mt-lg p-sm rounded-xl bg-primary/10 border border-primary/20 backdrop-blur-sm relative overflow-hidden group">
+<div class="relative z-10">
+<p class="font-label-sm text-primary mb-1">Cần tư vấn?</p>
+<p class="text-on-surface text-sm leading-snug">Chuyên gia của chúng tôi luôn sẵn sàng hỗ trợ bạn chọn switch phù hợp nhất.</p>
+<button class="mt-sm text-primary font-bold text-xs uppercase hover:tracking-widest transition-all">Liên hệ ngay →</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-6xl text-primary">keyboard</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<section class="col-span-12 lg:col-span-9">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-lg gap-sm">
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Mechanical Switches</h1>
+<p class="text-on-surface-variant font-body-md">Khám phá 24 mẫu switch cao cấp nhất thế giới.</p>
+</div>
+<div class="flex items-center gap-xs">
+<span class="text-label-sm text-on-surface-variant">Sắp xếp:</span>
+<select class="bg-surface border-none text-body-md font-bold text-primary focus:ring-0 cursor-pointer">
+<option>Mới nhất</option>
+<option>Giá: Thấp đến Cao</option>
+<option>Giá: Cao đến Thấp</option>
+<option>Phổ biến nhất</option>
+</select>
+</div>
+</div>
+<!-- Bento-style Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Product 1 -->
+<div class="switch-card bg-surface-container-lowest border border-outline-variant p-sm flex flex-col transition-all duration-300">
+<div class="relative aspect-square mb-sm overflow-hidden bg-surface-container-low rounded-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A macro studio photograph of a premium Gateron Ink Black V2 switch with a translucent smokey black housing. The switch is positioned centrally under soft, professional studio lighting with purple and cyan rim lights, emphasizing its sleek mechanical details. The background is a clean, minimalist light grey studio setting with subtle depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPEaZClzXo-Tcre-9EB-Ll23ePPEvkNv7BInQb9VEYFh_BIwjY0yxxvTHOnbv5q0OdBec672QseQjL3pz9C1iUMQLFfjrR5ZDg7bd_Mr3038S9Sl1HzCKu0_fxSSCjAiKS5pSMYfXj4UAEEiNabT4yXbzNgjUWmedZfZeupxcq_dh31_l6e2yXPv2eUXZhmUM212Yo-aTky3cf4T21T3ISi5TI_HVHL60IMPlf8F3kdFFzPljc60EDXnMNIa67i64RskV4PFAOCKQ"/>
+<div class="absolute top-2 left-2">
+<span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Linear</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md leading-tight">Gateron Ink Black V2</h3>
+<span class="font-label-sm text-on-surface-variant">10pcs</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-4">Mượt mà nhất trong phân khúc. Housing mờ khói cao cấp.</p>
+<div class="flex items-center gap-md mb-4 text-xs text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">bolt</span> 60g</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> 4mm</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-outline-variant">
+<span class="text-headline-md font-bold text-primary">215.000₫</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product 2 (Featured Large) -->
+<div class="switch-card bg-surface-container-lowest border border-outline-variant p-sm flex flex-col transition-all duration-300">
+<div class="relative aspect-square mb-sm overflow-hidden bg-surface-container-low rounded-lg">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="Close-up creative product photography of a ZealPC Zealios V2 switch with its iconic transparent housing and vibrant purple stem. The lighting is high-key and modern, with soft lavender shadows that reflect the brand's aesthetic. The shot highlights the precision engineering and high-quality materials of the switch component in a professional, light-mode e-commerce style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHh1vqGToMABd8RavsxRyR7geeLlHqGlyB1NpMH8uL1c0IySDmFbXCjXdBp_zvRbKSTMRDDq_vGEOuMDG5bjSGOcpO-XoyTfAvjnF1Df1RzYzGzoU6BlZIvPNwMUaxXP2-E_qVzyW1qcB4iGewPrnj9jxwIuVkIGfzwz1AIAj7J6FvjwvUdQqnHjGez6uu5feaVwgRKERL4pXQgZJnfuIijMJXDT51PA45LiNE6tc93-uQa3BnpPzMozM91Nwm_2hYu2P4NyjjAHM"/>
+<div class="absolute top-2 left-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Tactile</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md leading-tight">ZealPC Zealios V2</h3>
+<span class="font-label-sm text-on-surface-variant">10pcs</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-4">Đỉnh cao của sự phản hồi. Cảm giác nhấn rõ nét từng milimet.</p>
+<div class="flex items-center gap-md mb-4 text-xs text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">bolt</span> 67g</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> 4mm</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-outline-variant">
+<span class="text-headline-md font-bold text-primary">320.000₫</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="switch-card bg-surface-container-lowest border border-outline-variant p-sm flex flex-col transition-all duration-300">
+<div class="relative aspect-square mb-sm overflow-hidden bg-surface-container-low rounded-lg">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="High-detail macro shot of a Cherry MX Blue clicky switch. The white background emphasizes the crisp, blue stem and the classic black housing. The lighting is bright and professional, creating clean highlights on the plastic surfaces. This professional commercial photography captures the technical nature of the keyboard component in a minimalist light-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHE_XIQruLIFQgytdzGOt8TkTg3r7_J3L8niojwrOWn9Irp4DC-QZr0W-1gcF21qX26hzQ6azwCgdaJqp8bOY1WKyzX5GsBcISKRhPMieJD9zLeBSbo9aV8xBAImpAnzqcuRuW7Bif7zlB7E1j4FNY76v3PCdvLITDGpNyLIeNKkvQDI6NNncYuvLCRBO9GCqg7tc1mFJSDW-U8Sux3YqNi7RvxcUF1YnG9voD1J39SKSxOtUy8cml_qmb8EQlxXtF7DrN9VMYWXk"/>
+<div class="absolute top-2 left-2">
+<span class="bg-error text-on-error text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Clicky</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md leading-tight">Cherry MX Blue</h3>
+<span class="font-label-sm text-on-surface-variant">10pcs</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-4">Tiếng gõ giòn tan đặc trưng. Độ bền huyền thoại từ Đức.</p>
+<div class="flex items-center gap-md mb-4 text-xs text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">bolt</span> 50g</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> 4mm</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-outline-variant">
+<span class="text-headline-md font-bold text-primary">125.000₫</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="switch-card bg-surface-container-lowest border border-outline-variant p-sm flex flex-col transition-all duration-300">
+<div class="relative aspect-square mb-sm overflow-hidden bg-surface-container-low rounded-lg">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="Professional product photo of a Gateron Milky Yellow switch. The cream-colored milky housing is soft and aesthetically pleasing against a clean white minimalist background. Soft studio lighting with a warm purple accent light provides a premium look, showcasing the switch as a high-end mechanical keyboard enthusiast item." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGyStSKGmU3jfXuABOgDbxlSH1-vlSV-7HWV393h-RYFGVu0xLvTdbIcgbVj-42vxlioJI8bIztS9JckxpzXvaemete_4IOJjv-eebdjTmqljfFyU9WBXAR8u8I65DNG6G3SNIMljPIzEDkZSxlHI7if6ObdLWu6xgZm8V1TIJDjf50wsQcaltmdV1XhpruWKzg559FKmMSBoIVys8KXmPYhqPm43VD1MxXqWNSTWk9QYX8zWa2YGTN5jOr76i0yyjnrfIg9HQxWc"/>
+<div class="absolute top-2 left-2">
+<span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Linear</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md leading-tight">Gateron Milky Yellow</h3>
+<span class="font-label-sm text-on-surface-variant">10pcs</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-4">Lựa chọn quốc dân cho cảm giác mượt với mức giá hợp lý.</p>
+<div class="flex items-center gap-md mb-4 text-xs text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">bolt</span> 50g</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> 4mm</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-outline-variant">
+<span class="text-headline-md font-bold text-primary">65.000₫</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="switch-card bg-surface-container-lowest border border-outline-variant p-sm flex flex-col transition-all duration-300">
+<div class="relative aspect-square mb-sm overflow-hidden bg-surface-container-low rounded-lg">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="Macro artistic shot of a ZealPC Tealio V2 switch with its distinct teal-colored stem and crystal-clear housing. The lighting is sophisticated and bright, with subtle reflections on the transparent plastic. The overall aesthetic is clean, professional, and tech-forward, fitting for a premium mechanical keyboard shop in light mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLet_aPNZxq_BFbKNKqMRYUiIHZ51DPqUH4OIhhpM_YinXf3ydAeHu9z1EWjc4YOnhDy0EoevV8BpR66V4ObdcPzGym7oBm8XLnmzNBhMQeQFYQcpfpmuE1IXH9hwlTvAaeruB-326O4je2JrYFJhIAAyVEIhCuLhOqp1TBSeEkoRsXlhc_mkqE3qXkQUCpcQqCrTliIfOk_gGWAKN7CLGrPyPHhffatjk4uBCSPiKXH1TVip5GrLvD-BZyXgm-cYBpaaZCXK4LyE"/>
+<div class="absolute top-2 left-2">
+<span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Linear</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md leading-tight">ZealPC Tealios V2</h3>
+<span class="font-label-sm text-on-surface-variant">10pcs</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-4">Switch linear mượt nhất thị trường với stem Teal đặc trưng.</p>
+<div class="flex items-center gap-md mb-4 text-xs text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">bolt</span> 67g</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> 4mm</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-outline-variant">
+<span class="text-headline-md font-bold text-primary">320.000₫</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="switch-card bg-surface-container-lowest border border-outline-variant p-sm flex flex-col transition-all duration-300">
+<div class="relative aspect-square mb-sm overflow-hidden bg-surface-container-low rounded-lg">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="Macro close-up photo of a Cherry MX Brown tactile switch. The classic brown stem is sharp against the clean, light-mode studio background. Professional soft lighting highlights the texture of the plastic housing. The composition is balanced and clean, conveying reliability and standard industrial design excellence for premium peripherals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYfe4XzlpXCa5HCFaWup-bvR5w9T3MHtGFxl9AS0T7iJTwKoO06pnrZhX76IvFGekGvOYki-GPVAt6uAEoqkUy-033P43Bf-IEm2PDUHIwykl0TWHIgSEfHX_g1ZbpBBwvtmXrU2jBCdyrQTmvlzr9VuXnMtZkV_5MQHbCMkZ29SULZ2j0afFQKkFlmV9djdQv2p3QWQq9j6eXIlrxCgaaS6sh9ZZ8Za4nVdiEaQdffYF4PDW3hAmDw-g3HiwAZrZXhr9cMGevhT8"/>
+<div class="absolute top-2 left-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Tactile</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md leading-tight">Cherry MX Brown</h3>
+<span class="font-label-sm text-on-surface-variant">10pcs</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-4">Cân bằng hoàn hảo giữa gõ văn bản và chơi game.</p>
+<div class="flex items-center gap-md mb-4 text-xs text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">bolt</span> 45g</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">straighten</span> 4mm</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto pt-sm border-t border-outline-variant">
+<span class="text-headline-md font-bold text-primary">125.000₫</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-xl flex items-center justify-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold">1</button>
+</div></section></main></body></html>
