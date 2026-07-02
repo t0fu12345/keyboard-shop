@@ -6,11 +6,11 @@ Welcome to **TACTILE LUXE**, a mechanical keyboard shop interface built with Rea
 
 ## View the Live Site (GitHub Pages)
 
-This project is automatically deployed to GitHub Pages using GitHub Actions. You can view the live demo by visiting the link provided in the repository's "About" section or the "Environments" tab on GitHub.
+This project is automatically deployed to GitHub Pages using GitHub Actions. You can view the live demo anytime at the following link:
 
-Typically, the live URL will look like this:
-`https://<your-github-username>.github.io/<repository-name>/`
-*(For example: `https://t0fu12345.github.io/keyboard-shop/`)*
+**[https://t0fu12345.github.io/keyboard-shop/](https://t0fu12345.github.io/keyboard-shop/)**
+
+*(Note: This website is hosted 24/7 on GitHub Pages and is accessible to anyone on the internet.)*
 
 ## Local Development
 
