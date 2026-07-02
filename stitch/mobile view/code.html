@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TACTILE LUXE - Mobile Khám phá</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bec6e0",
+                        "primary-fixed": "#f8d8ff",
+                        "on-primary-fixed-variant": "#74009f",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-surface-variant": "#514255",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed": "#320047",
+                        "secondary": "#565e74",
+                        "primary-container": "#bd00ff",
+                        "surface-container": "#eceef0",
+                        "inverse-surface": "#2d3133",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#ffffff",
+                        "on-error": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-secondary-container": "#5c647a",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed-dim": "#ecb2ff",
+                        "on-tertiary-fixed": "#001a42",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#131b2e",
+                        "tertiary": "#0059c0",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#9900cf",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "surface": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ecb2ff",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#2372e5",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#dae2fd",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#9700cd",
+                        "secondary-fixed": "#dae2fd",
+                        "outline": "#837186",
+                        "surface-variant": "#e0e3e5",
+                        "outline-variant": "#d4c0d7",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "xl": "80px",
+                        "margin-desktop": "40px",
+                        "xs": "8px",
+                        "margin-mobile": "16px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "base": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; background-color: #F8FAFC; }
+        .glass-header {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .glass-bottom-nav {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid #E2E8F0;
+        }
+        .bento-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+        .bento-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+            border-left: 2px solid #BD00FF;
+        }
+        .btn-primary {
+            background-color: #BD00FF;
+            color: #FFFFFF;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(189, 0, 255, 0.3);
+        }
+        .btn-secondary {
+            border: 1px solid #BD00FF;
+            color: #BD00FF;
+            background-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface pb-24 pt-16">
+<!-- Mobile Top App Bar (Custom for Mobile as requested) -->
+<header class="fixed top-0 w-full z-50 glass-header px-margin-mobile py-4 flex justify-between items-center md:hidden">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tighter">Khám phá</h1>
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</button>
+</div>
+</header>
+<!-- Main Content (Mobile Layout) -->
+<main class="px-margin-mobile flex flex-col gap-12 max-w-md mx-auto md:hidden">
+<!-- Bàn phím Section -->
+<section class="flex flex-col gap-4">
+<div class="flex justify-between items-end mb-2">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Bàn phím</h2>
+</div>
+<div class="flex flex-col gap-4">
+<article class="bento-card overflow-hidden">
+<img alt="Onyx 65 Pro" class="w-full h-48 object-cover" data-alt="A sleek, premium mechanical keyboard with dark grey and purple accents resting on a clean white desk. The scene is brightly lit with a soft, diffused white light, emphasizing a modern, professional workspace aesthetic with a touch of high-tech flair." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSiFbAWkKbs2WD9vAYcyldbGm2aMnmgZDmfaWYatVQb1oJvbNL52aeYOy6XalEgCNyZL-Uv3henS5I1zU7KlVkpH2yMDueXTOA4Tuf1SwEgGdB6L39vhHIreD8D8rMq4k-rkHf9rMiHDmn8xGyzn1NBIW7WbAlSeABqDrG6q1OitIUYAT6J1yIW9n2bwdamMeKoCon5hChW6cYmGea6xUGOjNI9Mr9i4_9A0-L3w4mw80J2R659apFcHJ3HH3sXIpSBJ6rG60Gjng"/>
+<div class="p-4 flex flex-col gap-2">
+<h3 class="font-headline-md text-[20px] font-semibold text-on-surface">Onyx 65 Pro</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Custom Aluminum Gasket Mount</p>
+<div class="flex justify-between items-center mt-2">
+<span class="font-body-lg text-body-lg font-bold text-primary">$249.00</span>
+<button class="btn-primary px-4 py-2 rounded-full font-label-sm text-label-sm">Xem ngay</button>
+</div>
+</div>
+</article>
+<article class="bento-card overflow-hidden">
+<img alt="Glacier 60" class="w-full h-48 object-cover" data-alt="A pristine, minimalist white mechanical keyboard with translucent keycaps sitting on a light grey textured mat. The lighting is crisp and cool, creating a sense of precision and modern elegance typical of a high-end corporate tech environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBggJoswJZAU-YOklRTNtC7XsmQ6lyWfRPuFTYb_M51R8vqkOZpIaglS2tDsHDuGz9a5p_tMGN6DFdtMJAeK8gqmuxmS0MjwTole6A2InP5SHLJ9x2tSQgXk7Bz2s1MSYMfJcgVTVSX3vjtNs5TDwdbNTWH8JyqZWm3VXrWLmeVGvinby_ZAKF_sslooRMFlgm42d78nrTC1YperfkpGMKEw6dRm7Ids8g8H92L1tH9_NuxLDk-iIjkrX0OPwWNhqE2_ztlhTVNyco"/>
+<div class="p-4 flex flex-col gap-2">
+<h3 class="font-headline-md text-[20px] font-semibold text-on-surface">Glacier 60</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Frosted Polycarbonate Case</p>
+<div class="flex justify-between items-center mt-2">
+<span class="font-body-lg text-body-lg font-bold text-primary">$189.00</span>
+<button class="btn-primary px-4 py-2 rounded-full font-label-sm text-label-sm">Xem ngay</button>
+</div>
+</div>
+</article>
+</div>
+<button class="btn-secondary w-full py-3 rounded-full font-label-sm text-label-sm mt-2">Xem tất cả Bàn phím</button>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-surface-container-high"></div>
+<!-- Keycaps Section -->
+<section class="flex flex-col gap-4">
+<h2 class="font-display-lg-mobile text-[28px] font-bold text-on-surface leading-tight mb-2">Keycaps</h2>
+<div class="grid grid-cols-2 gap-4">
+<article class="bento-card overflow-hidden flex flex-col">
+<img alt="Nocturnal Purple" class="w-full h-32 object-cover" data-alt="A macro shot of a set of deep purple and magenta mechanical keyboard keycaps scattered elegantly on a clean white surface. The image is brightly lit, showcasing the sharp typography and high-quality double-shot plastic finish, exuding a premium, energetic vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4fDSyd9JZf7SCTGnMBnE08GB_xmM6ebhBxPbAW7kS9uj5TDLa0z-Q9-OtBp7g8AefidS1YsXnXp6iom1fs15WuKWAsB3XcaqBW_e_lPeC7b-OTQ9I_zfGhRkF1QzHd2ZldkXagzUPtTrJtwkDWghIAHBSdJzHWYm1HRnAI0IKrP2SwwZXLPfL3UdUV_nZdXqjxsvZwjMFh048KEeQS8jZnZ7TaajCboK8pn_WtlPb6pjb7fndd_XWfLn4cGbGYD2fZBtKKYXUBFs"/>
+<div class="p-3 flex flex-col justify-between flex-grow">
+<div>
+<h3 class="font-body-md text-body-md font-semibold text-on-surface leading-snug">Nocturnal Purple</h3>
+<p class="font-label-sm text-[10px] text-on-surface-variant mt-1">PBT Double-shot</p>
+</div>
+<span class="font-body-md text-body-md font-bold text-primary mt-2">$89.00</span>
+</div>
+</article>
+<article class="bento-card overflow-hidden flex flex-col">
+<img alt="Cyber-tactile V2" class="w-full h-32 object-cover" data-alt="A close-up view of futuristic, semi-translucent mechanical keyboard keycaps with neon cyber accents, neatly arranged on a bright, minimalist desk setup. The clean, high-key lighting emphasizes the modern, professional tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7kVDIiVrbctmAdv6jnery0t0DjxahsjJrGMVw9qn49ipoZOD_ELuGmeUv1INOATN6kUlZWVYVX_ZgdqirfTfZ8u-zn3v_gtBHm2NaZ130GF3iJ7iDqxp9DZjPlE_KT4mTZnsS6SAPewCaFWAdNUjaSe5IHW1ZYC4d3S3ZawTLIcjrdEbj_LNOfEp9h_3GaLTKrO05Ub4ljFLis-Xn2iAg3UhIkl54iWJA-jeLTQMGEH_Q0BJLQ32J2rIFLjYZ5EZe0CqkOfoXlBo"/>
+<div class="p-3 flex flex-col justify-between flex-grow">
+<div>
+<h3 class="font-body-md text-body-md font-semibold text-on-surface leading-snug">Cyber-tactile V2</h3>
+<p class="font-label-sm text-[10px] text-on-surface-variant mt-1">ABS Laser-etched</p>
+</div>
+<span class="font-body-md text-body-md font-bold text-primary mt-2">$75.00</span>
+</div>
+</article>
+</div>
+<button class="btn-secondary w-full py-3 rounded-full font-label-sm text-label-sm mt-2">Xem tất cả Keycaps</button>
+</section>
+</main>
+<!-- Mobile Bottom Nav -->
+<nav class="fixed bottom-0 w-full z-50 glass-bottom-nav px-6 py-3 md:hidden">
+<ul class="flex justify-between items-center max-w-md mx-auto">
+<li class="flex flex-col items-center">
+<a class="text-on-surface-variant flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Trang chủ</span>
+</a>
+</li>
+<li class="flex flex-col items-center">
+<a class="text-primary flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-[10px] font-bold">Khám phá</span>
+</a>
+</li>
+<li class="flex flex-col items-center">
+<a class="text-on-surface-variant flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="font-label-sm text-[10px]">Tin tức</span>
+</a>
+</li>
+<li class="flex flex-col items-center">
+<a class="text-on-surface-variant flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Cá nhân</span>
+</a>
+</li>
+</ul>
+</nav>
+</body></html>
